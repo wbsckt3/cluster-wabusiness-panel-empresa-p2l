@@ -224,7 +224,7 @@ html, body {
 .tg-live__dot.is-idle { background: #f59e0b; }
 .tg-live__dot.is-left { background: #94a3b8; }
 #tg-live-dot.is-on { color: var(--leaf-ink); }
-/* Skill, capacidades, WhatsApp y Dropbox: solo desde el Nitro Cluster. */
+/* Skill, habilidades, WhatsApp y Dropbox: solo desde el Nitro Cluster. */
 .tg-board__cluster-note { grid-area: note; }
 .tg-board--panes .tg-board__cluster-note { margin-top: 10px; }
 .tg-board__ctx { grid-area: ctx; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
@@ -1174,3 +1174,102 @@ html, body {
   .tg-threads { display: none; }
   .tg-plan-fields--modal { grid-template-columns: 1fr; }
 }
+
+/* ——— Contador de habilidades + paneles traspilados (Nitro Cluster fase 1) ——— */
+.tg-cap-count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-left: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  border: 1px solid #86efac;
+  color: #065f46;
+  font-size: 13px;
+  font-weight: 600;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.tg-cap-count strong { font-size: 15px; }
+.tg-cap-count small { color: #047857; font-weight: 500; }
+.tg-assets__title {
+  margin: 18px 0 8px;
+  font-size: 14px;
+  color: var(--leaf-ink, #065f46);
+}
+.tg-comp--asset { position: relative; }
+.tg-comp__asset-tag {
+  position: absolute;
+  top: 6px;
+  right: 46px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #7c2d12;
+  background: #ffedd5;
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+.tg-comp.is-plan-off { opacity: 0.55; cursor: not-allowed; }
+.tg-asset-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.tg-asset-frame { width: 100%; height: 420px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fff; margin-top: 8px; }
+
+/* Encender un panel que el plan ya incluye: texto a la derecha del checkbox, amarillo y subrayado. */
+.tg-asset-toggle { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+.tg-asset-toggle input[type='checkbox'] { width: 18px !important; height: 18px !important; min-width: 18px; padding: 0 !important; border: 0; flex: 0 0 18px; margin: 0; accent-color: #eab308; }
+.tg-asset-toggle span { flex: 1 1 auto; min-width: 0; line-height: 1.35; }
+.tg-asset-toggle.is-in-plan span { color: #ca8a04; text-decoration: underline; text-decoration-color: #facc15; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Salón de estudio de la empresa (habilidad «Mesas de estudio»). */
+.tg-study-room { padding: 12px 14px; border: 1px solid #ddd6fe; border-radius: 12px; background: #faf5ff; }
+.tg-study-room__head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.tg-study-room__head strong { color: #4c1d95; }
+.tg-study-room__live { font-size: 0.78rem; font-weight: 800; color: #64748b; }
+.tg-study-room__live.is-on { color: #047857; }
+.tg-study-room__link { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tg-study-room__link code { padding: 6px 10px; border-radius: 8px; background: #fff; border: 1px solid #ddd6fe; color: #4c1d95; word-break: break-all; }
+.tg-study-room__wa { background: #25d366; border-color: #25d366; color: #fff; text-decoration: none; }
+.tg-study-room__people { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tg-study-room__people li { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #fff; border: 1px solid #e2e8f0; font-size: 0.82rem; color: #64748b; }
+.tg-study-room__people li.is-on { color: #0f172a; border-color: #a7f3d0; }
+.tg-study-room__dot { width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1; }
+.tg-study-room__people li.is-on .tg-study-room__dot { background: #10b981; }
+
+/* Contador por tipo de habilidad. */
+.tg-cap-tier { margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; }
+.tg-cap-tier--ext { background: #e0f2fe; color: #075985; }
+.tg-cap-tier--int { background: #ecfdf5; color: #047857; }
+.tg-cap-tier--asset { background: #f5f3ff; color: #6d28d9; }
+
+/* Inventario de habilidades del agente (MCP Skill global). */
+.tg-inventory { margin-top: 12px; padding: 12px 14px; border: 1px solid #bbf7d0; border-radius: 12px; background: #f0fdf4; }
+.tg-inventory__head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.tg-inventory__head strong { color: #065f46; }
+.tg-inventory__tag { padding: 1px 8px; border-radius: 999px; background: #d1fae5; color: #047857; font-size: 0.72rem; font-weight: 800; }
+.tg-inventory__list { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 6px; }
+.tg-inventory__list li { display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; padding: 8px 10px; border-radius: 10px; background: #fff; border: 1px solid #d1fae5; font-size: 0.84rem; }
+.tg-inventory__list li small { color: #64748b; align-self: center; }
+.tg-inventory__list li span, .tg-inventory__list li a { grid-column: 1 / -1; color: #334155; word-break: break-all; }
+.tg-inventory summary { cursor: pointer; font-weight: 700; color: #047857; font-size: 0.82rem; }
+
+/* Guía en pantalla (card Áreas) */
+.tg-cbg { margin-top: 12px; padding: 14px 16px; border-radius: 14px; background: linear-gradient(180deg, #f0fdf4, #fff 60%); border: 1px solid #bbf7d0; font-size: 0.82rem; color: #334155; }
+.tg-cbg > strong { display: block; font-size: 0.95rem; color: #14532d; }
+.tg-cbg > p { margin: 4px 0 0; }
+.tg-cbg ol { margin: 10px 0; padding-left: 20px; display: grid; gap: 5px; line-height: 1.45; }
+.tg-cbg ul { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
+.tg-cbg ul li { display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; background: #fff; border: 1px solid #e2e8f0; line-height: 1.4; }
+.tg-cbg b { color: #0f172a; }
+.tg-cbg__sub { margin: 10px 0 6px !important; font-weight: 700; color: #0f172a; }
+.tg-cbg__icon { flex: 0 0 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 0.72rem; background: #e2e8f0; color: #475569; }
+.tg-cbg li.is-ok .tg-cbg__icon { background: #16a34a; color: #fff; }
+.tg-cbg li.is-todo .tg-cbg__icon { background: #f59e0b; color: #fff; }
+.tg-cbg code { font-size: 0.78rem; background: rgba(15, 23, 42, 0.06); padding: 0 4px; border-radius: 4px; }
+
+/* Guía en pantalla en «Ahora en la landing» */
+.tg-live__advisor { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 0.74rem; color: var(--muted); }
+.tg-live__advisor input { max-width: 200px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; font: inherit; }
+.tg-live__cb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; font-size: 0.72rem; font-weight: 600; color: #14532d; }
+.tg-live__cb a { padding: 3px 10px; border-radius: 999px; background: #16a34a; color: #fff; text-decoration: none; }
